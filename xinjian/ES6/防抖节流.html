@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            color: #fff;
+            background-color: #ccc;
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <script>
+        let num = 1;
+        let odiv = document.getElementById("div1");
+        function count2() {
+            this.innerHTML = num++;
+        }
+        odiv.onmousemove = count;
+
+        //防抖 所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间
+        let num2 = 1;
+        let odiv2 = document.getElementById("div2");
+        function count() {
+            this.innerHTML = num2++;
+        }
+        function debonce(fn, wait) {
+            let timer = null;
+            return function (...arg) {
+                let context = this;
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(function () {
+                    fn.apply(context, arg)
+                }, wait)
+            }
+        }
+        odiv2.onmousemove = debonce(count2, 1000);
+
+        // 节流 所谓节流，就是指连续触发事件但是在 n 秒中只执行一次函数
+        let num3 = 1;
+        let odiv3 = document.getElementById("div3");
+        function count() {
+            this.innerHTML = num3++;
+        }
+        function debonce(fn, wait) {
+            let timer = null;
+            return function (...arg) {
+                let context = this;
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        timer = null;
+                        fn.apply(context, arg)
+                    }, wait)
+                }
+
+            }
+        }
+        odiv3.onmousemove = debonce(count2, 1000);
+    </script>
+</body>
+
+</html>

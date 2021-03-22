@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+    <script>
+        var ali = document.querySelectorAll("li");
+    //    for(var i = 0;i<ali.length;i++){
+    //        (function foo(index){
+    //            ali[i].onclick = function(){
+    //             console.log(index);
+    //            }
+    //         })(i)
+    //     }
+
+    //   for(let i=0;i<ali.length;i++){
+    //     ali[i].onclick = function(){
+    //             console.log(i);
+    //            }
+    //   }
+
+    // for(var i= 0;i<ali.length;i++){
+    //     ali[i] = index;
+    //     ali[i].onclick = function(){
+    //         console.log(this.index);
+    //     }
+    // }
+
+    const a=10; //常量 只读不写
+    
+    console.log(a);
+
+
+    const obj = {
+        age :20
+    }
+    Object.freeze(obj);
+    obj.age = 30;
+    console.log(obj);
+    
+    </script>
+</body>
+</html>

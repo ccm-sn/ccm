@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./ajaxget.js"></script>
+</head>
+
+<body>
+    <ul id="box"></ul>
+    <script>
+        var oBox = document.querySelector("#box");
+
+        // var str = "";
+        // ajaxGet("http://47.92.82.13:4000/showLevel", function (res) {
+        //     console.log(res.data);//小明
+        //     for (var i = 0; i < res.data.length; i++) {
+        //         str += "<li>" + res.data[i].levelname + "</li>";
+        //         console.log(str);
+        //     }
+        //     oBox.innerHTML = str;
+        // })
+
+        ajaxGet("http://47.92.82.13:4000/showLevel", function (res) {
+            console.log(res.data);//小明
+            for (var i = 0; i < res.data.length; i++) {
+                var ali = document.createElement("li");
+                ali.innerText = res.data[i].levelname;
+                oBox.appendChild(ali);
+            }
+        })
+    </script>
+</body>
+
+</html>

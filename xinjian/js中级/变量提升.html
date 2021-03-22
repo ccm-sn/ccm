@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //变量提升 仅提升定义的部分
+        // console.log(a);
+        // var a = 10
+        // var a
+        // console.log(a);
+        // a = 10
+
+        // function foo(){
+        //     console.log(a);
+        //     var a = 10   ==  var a   a=10
+        // }
+        // foo()
+        // console.log(a);
+
+        // console.log(a)
+        // var a = 10;
+        // function a(){
+        //     console.log("1");
+        // }
+        //变量提升到最顶部，随后函数   log f a
+
+        // foo()
+        // function foo()
+        // {
+        //     console.log("1");
+        // }
+
+         function foo()
+        {
+            console.log("1");
+            return "hello"
+        }
+        console.log(foo());
+        //log返回函数类型
+    </script>
+</body>
+</html>

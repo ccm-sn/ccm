@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async function foo(){
+        //     return "hello"
+        // }
+        // console.log(foo());
+
+        function getData(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    return("success")
+                    console.log("success");
+                },1000)
+            })
+        }
+
+        async function foo(){
+            await getData()
+            console.log(1);
+        }
+        foo()
+        // getData().then(function(res){
+        //     console.log(res);
+        // })
+        // console.log(1);
+        // getData()
+    </script>
+</body>
+</html>

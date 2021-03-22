@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="box">
+    </div>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+    <script type="text/babel">
+    let a = 10;
+    let b = 12;
+    // jsx
+        ReactDOM.render(
+            <div>
+                <h1>标题</h1>
+                <p>12345161 {a*b} </p>
+                <p>hello world</p>
+            </div>,
+            document.getElementById('box')
+        )
+
+    </script>
+
+</body>
+
+</html>

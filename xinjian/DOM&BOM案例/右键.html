@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        width: 80px;
+        height: 240px;
+        background-color: teal;
+        display: none;
+        position: fixed;
+    }
+    li{
+        list-style: none;
+      /* border-bottom: 1px solid black; */
+    }
+</style>
+<body>
+    <div>
+        <ul>
+           <li>一级菜单</li>
+           <li>二级菜单</li>
+           <li>三级菜单</li>
+        </ul>
+    </div>
+    <script>
+        var oul = document.getElementsByTagName("ul")[0];
+        document.oncontextmenu = function(event){
+            event.preventDefault();
+            oul.style.display="block";
+            oul.style.left=event.clientX+"px";
+            oul.style.top=event.clientY+"px";
+        }
+      //preventDefault 阻止默认事件
+    </script>
+</body>
+</html>

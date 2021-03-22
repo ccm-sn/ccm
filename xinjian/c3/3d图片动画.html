@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 1000px;
+        }
+
+        .box {
+            width: 300px;
+            height: 400px;
+            margin: 200px auto;
+            border: 2px solid black;
+            transform-style: preserve-3d;
+        }
+
+        .box .img1 {
+            transition: all 1s ease;
+            transform: rotate(45deg);
+        }
+
+        .box .img2 {
+            transition: all 1s ease;
+            transform: rotate(-45deg);
+        }
+
+        img:hover {
+            transform: translateZ(400px) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img class="img1" src="C:\Users\Administrator\Pictures\微信图片_20200811115436.jpg" alt=""
+            style="height :200px; width: 300px;">
+        <img class="img2" src="C:\Users\Administrator\Pictures\微信图片_20200811115525.jpg" alt=""
+            style="height :200px; width: 300px;">
+    </div>
+</body>
+
+</html>

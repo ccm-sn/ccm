@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            margin: 100px auto;
+            border: 2px solid saddlebrown;
+            position: relative;
+            /* dashed 虚线 */
+        }
+
+        .box li {
+            width: 2px;
+            height: 7px;
+            background-color: blue;
+            position: absolute;
+            left: 50%;
+            transform-origin: 0 100px;
+        }
+
+        .box li:nth-child(5n+1) {
+            height: 12px;
+        }
+
+        /* li:nth-child(2){
+            transform: rotate(6deg);
+        } */
+        .box .hour {
+            width: 5px;
+            height: 40px;
+            background-color: yellow;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+            transform: translateY(-100%);
+            transform-origin: 50% 50%;
+            transform-origin: top center;
+        }
+
+        .box .minute {
+            width: 5px;
+            height: 60px;
+            background-color: rgb(132, 0, 255);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transform: translateY(-100%);
+            top: 50%;
+            transform-origin: 50% 50%;
+            transform-origin: top center;
+        }
+
+        .box .second {
+            width: 3px;
+            height: 80px;
+            background-color: rgb(76, 0, 255);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+            transform: translateY(-100%);
+            transform-origin: top center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+        </ul>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+    <script>
+        //重绘 比如修改元素颜色   回流（重排）比如修改元素大小   尽量重绘避免重排
+        var oul = document.querySelector("ul");
+        var ohour = document.querySelector(".hour");
+        var ominute = document.querySelector(".minute");
+        var osecond = document.querySelector(".second");
+        //  var str = "";
+
+        var obox = document.createDocumentFragment();//容器
+        for (var i = 0; i < 60; i++) {
+            var oli = document.createElement("li");
+            oli.style.transform = "rotate(" + i * 6 + "deg)"
+            obox.appendChild(oli);
+            oul.appendChild(obox);
+            //  oul.appendChild(oli);
+            // str += "<li style = ' transform: rotate("+i*6+"deg);'></li>" 
+        }
+        //  oul.innerHTML = str;
+
+        function run() {
+            var timer = new Date();
+            var hour = timer.getHours();
+            var minute = timer.getMinutes();
+            var second = timer.getSeconds();
+            osecond.style.transform = "rotate(" + (second * 6 - 180) + "deg)";
+            ominute.style.transform = "rotate(" + (minute * 6 - 180) + "deg)";
+            ohour.style.transform = "rotate(" + (hour * 30 - 180) + "deg)";
+        }
+        run();
+        setInterval(function () {
+            run();
+        }, 1000)
+    </script>
+</body>
+
+</html>

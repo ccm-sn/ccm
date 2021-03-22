@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        margin-top: 5px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="div1">选择一
+            <button class="btntop">向上</button>
+            <button class="btnbottom">向下</button>
+        </div class="div2">
+        <div>选择二
+            <button class="btntop">向上</button>
+            <button class="btnbottom">向下</button>
+        </div class="div3">
+        <div>选择三
+            <button class="btntop">向上</button>
+            <button class="btnbottom">向下</button>
+        </div>
+    </div>
+    <script>
+        var btntop = document.querySelectorAll(".btntop");
+        var btnbottom = document.querySelectorAll(".btnbottom");
+        var obox = document.querySelector(".box");
+
+        for(var i = 0;i<btntop.length;i++){
+            btntop[i].onclick = function(){
+              var thisparent = this.parentElement;
+              var pers = thisparent.previousElementSibling;      
+              if(pers){
+                  obox.insertBefore(thisparent, pers)
+              }
+            }
+
+            btnbottom[i].onclick = function(){
+                var thisparent = this.parentElement;
+                var nexts = thisparent.nextElementSibling;
+                if(nexts){
+                    obox.insertBefore(nexts, thisparent);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

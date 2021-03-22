@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .box {
+        width: 600px;
+        height: 200px;
+        background-color: blue;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    /* .box.num{
+        background-color: orange;
+        z-index: 10;
+    } */
+    /* .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    } */
+    
+    .box .btn-content {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+    }
+
+    .box .btn-content .num {
+        float: right;
+    }
+
+    .box .btn-content .fuhao {
+        float: left;
+    }
+
+    .box .btn-content li {
+        width: 22px;
+        height: 22px;
+        border-radius: 11px;
+        background-color: orange;
+        color: white;
+        float: left;
+        text-align: center;
+        line-height: 22px;
+        margin: 0 2px;
+    }
+
+    .box .img-content img {
+        width: 600px;
+        height: 200px;
+    }
+
+    .box .img-content li {
+        display: none;
+    }
+
+    /* .box .img-content li:first-child {
+        display: block;
+    } */
+    .box .btn-content .active{
+        background-color: red;
+    }
+    .box .img-content .active{
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="img-content">
+            <ul>
+                <li class="active"><img src="./img/01.jpg" alt=""></li>
+                <li><img src="./img/02.jpg" alt=""></li>
+                <li><img src="./img/03.jpg" alt=""></li>
+                <li><img src="./img/04.jpg" alt=""></li>
+                <li><img src="./img/05.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="btn-content">
+            <div class="num">
+                <ul>
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="fuhao">
+                <ul class="active">
+                    <li>&lt</li>
+                    <li>&gt</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oBox = document.getElementsByClassName("box")[0];
+        var oImg = document.getElementsByClassName("img-content")[0].getElementsByTagName("li");
+        var oFuhao = document.getElementsByClassName("fuhao")[0].getElementsByTagName("li");
+        var oNum = document.getElementsByClassName("num")[0].getElementsByTagName("li");
+        var nowindex = 0;
+        var timer = undefined;
+     
+
+        function changeimg(index) {
+            if (index == 5) {
+                index = 0;
+            } else if (index == -1) {
+                index = 4;
+            }
+
+            for (var j = 0; j < oNum.length; j++) {
+                oNum[j].className = "";
+                oImg[j].className = "";
+            }
+
+            oImg[index].className = "active";
+            oNum[index].className = "active";
+            nowindex = index;
+        }
+
+        for (var i = 0; i < oNum.length; i++) {
+            oNum[i].index = i;
+            oNum[i].onmouseenter = function () {
+                changeimg(this.index);
+            }
+        }
+
+        oFuhao[0].onclick = function () {
+            changeimg(nowindex - 1);
+        }
+        oFuhao[1].onclick = function () {
+            changeimg(nowindex + 1);
+        }
+
+        function play(){
+           timer = setInterval(function()  {
+               changeimg(nowindex + 1)
+            }, 1000);
+        }
+        play(); 
+      
+       
+
+        oBox.onmouseenter = function(){
+            clearInterval(timer);
+        }
+        oBox.onmouseleave = function(){
+            play();
+        }
+      //onmouseenter 鼠标移入
+      //onmouseleave 鼠标移出
+    </script>
+</body>
+
+</html>

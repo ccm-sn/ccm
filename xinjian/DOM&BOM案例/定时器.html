@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #aaa;
+            border-radius: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /* transform: translate(-50%,-50%); */
+            margin-top: -100px;
+            margin-left: -100px;
+            box-shadow: 1px 1px 5px #aaa;
+            text-align: center;
+        }
+       
+        #but{
+            background-color: black;
+            color: white;
+            border: 0;
+            outline: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            /* margin: 50px; */
+        }
+        #num{
+            margin-top: 50px;
+            margin-bottom: 10px;
+           /* margin: 50px; */
+        } 
+    </style>
+</head>
+<body>
+    <div class="box">
+         <h1 id="num">100</h1>
+         <button id="but">开始</button>
+    </div>
+    <script>
+         var oNum = document.getElementById("num");
+         var obut = document.getElementById("but");
+         var _num = 100;
+         var timer = null;
+         obut.onclick = function(){
+             if(obut.innerText == "开始"){
+                 obut.innerText = "暂停";
+               timer = setInterval(function()  {
+                     oNum.innerText = --_num;
+                 }, 1000);
+             }else{
+                obut.innerText = "开始";
+                clearInterval(timer);
+             }
+         }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // document.cookie = "username=test; expires="+timer.toUTCString();
+        // document.cookie = "password=123; expires="+timer.toUTCString();
+
+        // console.log(document.cookie);
+        //setCookie(key,val.timer)
+        //getCookie(key)
+        //delCookie(key)
+
+        // var str = "     hello    ";
+        // console.log(str.trim()) 删除字符前后空格;
+
+        function setCookie(key, val, timer) {
+            var now = new Date();
+            now.setDate(now.getDate() + timer)
+            document.cookie = key + "=" + val + ";expires" + now.toUTCString();
+        }
+        setCookie("usernamme", "test", 1);
+         setCookie("usernamme1", "xiaoming", 1);
+
+        function getCookie(key) {
+            var cookies = document.cookie;
+          //  console.log(cookies.split(";"));
+            cookies = cookies.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+            //    console.log(i);
+                if (cookies[i].split("=")[0].trim() == key) {
+                    console.log(cookies[i].split("=")[1]);
+                }
+            }
+        }
+      //  getCookie("usernamme");
+
+        function delCookie(key) {
+            var now = new Date();
+            now.setDate(now.getDate() - 1);
+            document.cookie = key + "=null;expires="+now.toUTCString();
+        }
+        delCookie("usernamme");
+    </script>
+</body>
+
+</html>

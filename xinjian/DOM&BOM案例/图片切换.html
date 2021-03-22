@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+
+    .box {
+        /* text-align: center; */
+        width: 400px;
+        border: 1px solid black;
+        margin: 100px auto;
+    }
+
+    .big-small {
+        text-align: center;
+        /* border-bottom:1px solid black ; */
+    }
+
+    .big-small img {
+        width: 200px;
+    }
+
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .list li {
+        width: 99px;
+        float: left;
+        text-align: center;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    .list img {
+        width: 65px;
+    }
+
+    .list li:last-child {
+        border-right: 0;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="big-small"><img id="tu" src="./slider1.jpg" alt=""></div>
+        <div class="list">
+            <ul class="clearfix">
+                <li><img src="./slider1.jpg" alt=""></li>
+                <li><img src="./slider2.jpg" alt=""></li>
+                <li><img src="./slider3.jpg" alt=""></li>
+                <li><img src="./slider4.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oBig = document.getElementById("tu");
+        var oList = document.getElementsByClassName("list")[0];
+        var oImg = oList.getElementsByTagName("img");
+        for (var i = 0; i < oImg.length; i++) {
+            oImg[i].onmouseover= function () {
+                var oimg = this.getAttribute("src");
+                oBig.setAttribute("src",oimg);
+            }
+        }
+    </script>
+</body>
+
+</html>

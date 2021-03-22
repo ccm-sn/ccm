@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+
+        .box {
+            width: 400px;
+            height: 40px;
+            border: 2px solid black;
+            border-radius: 10pX;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            width: 0px;
+            height: 40px;
+            background-color: blue;
+        }
+
+        #jindu {
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content"></div>
+        <div id="jindu">0%</div>
+    </div>
+    <button id="btn">开始</button>
+    <script>
+        var ojindu = document.getElementById("jindu");
+        var obt = document.getElementById("btn");
+        var obox = document.getElementsByClassName("content")[0];
+        var num = 0;
+        // obt.onclick = function () {
+        //     var timer = setInterval(function () {
+        //         if (obox.offsetWidth >= 400) {
+        //             clearInterval(timer)
+        //         } else {
+        //             ojindu.innerText = ++num + "%"
+        //             obox.style.width = obox.offsetWidth + 4 + "px";
+        //         }
+        //     }, 16);
+        // }
+
+
+        function run() {
+            if (obox.offsetWidth < 400) {
+                ojindu.innerText = ++num + "%"
+                obox.style.width = obox.offsetWidth + 4 + "px";
+                requestAnimationFrame(run);
+            }
+        }
+        obt.onclick = function(){
+            requestAnimationFrame(run);
+        }
+       // requestAnimationFrame 页面刷新
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+    }
+    .box{
+        color: white;
+        background-color: black;
+        font-size: 20px;
+        width: 300px;
+        height: 50px;
+        margin: 100px auto;
+        position: relative;
+    }
+    .tab li{
+        float:left;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+    .box .active{
+         background-color: rgb(135, 165, 95);
+    }
+
+</style>
+</head>
+<body>
+    <div class="box">
+        <ul class="tab">
+            <li data-name="first" class="active">first</li>
+            <li data-name="second">second</li>
+            <li data-name="third">third</li>
+        </ul>
+    </div>
+    <script>
+        var ali = document.querySelectorAll("li");
+
+        for(var i = 0;i<ali.length;i++){
+            ali[i].onclick = function(){
+                for(var j = 0;j<ali.length;i++){
+                    ali[j].className = "";
+                }
+                 this.className = "active"
+                 location.hash = this.dataset.name;
+                 console.log(location.hash);
+            }
+        }
+        window.onhashchange = function(){
+            var thisHash = location.hash.substr(1);
+            console.log(thisHash);
+            for(var i=0;i<aLi.length;i++){
+                if(aLi[i].dataset.name == thisHash){
+                    aLi[i].className = "active";
+                }else{
+                    aLi[i].className = "";
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        .box{
+            font-size: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">你喜欢什么运动</div>
+    <form>
+        <input type="checkbox">足球
+        <input type="checkbox">篮球
+        <input type="checkbox">台球
+        <input type="checkbox">跑步 
+    <br>
+        <input  id="all" type="button" value="全选">
+        <input  id="no" type="button" value="全不选">
+        <input id="fan" type="button" value="反选">
+   </form>
+    <script>
+         $("#all").click(function(){
+             $(":checkbox").prop("checked",true)
+         })
+         $("#no").click(function(){
+             $(":checkbox").prop("checked",false)
+         })
+         $("#fan").click(function(){
+             var checkbox = $(":checkbox");
+            //  for(var i = 0;i<checkbox.length;i++){
+                checkbox.each(function(key,val){
+                     if(val.checked){
+                        $(val).prop("checked",false)
+                     }else{
+                        $(val).prop("checked",true)
+                     }
+                })
+         })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //闭包 两层或两层以上的函数嵌套里层函数课调用外层的局部变量，此局部变量不可被释放
+        //内存溢出
+        // function foo(){
+        //     var a = 10
+        //     function foo2(){
+        //         console.log(a);
+        //     }
+        // }
+
+        function f1() {
+            var n = 999;
+            function f2() {
+                alert(n);
+            }
+            return f2;
+        }
+        var result = f1();
+        result(); // 999
+
+
+        // var a = 20
+        // obj = {
+        //     a: 10,
+        //     foo: function () {
+        //         this.a = 30
+        //         console.log(this.a);
+        //     }
+        // }
+        // obj.foo()
+        // console.log(obj.a);
+
+        
+    </script>
+</body>
+
+</html>

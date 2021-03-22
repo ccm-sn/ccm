@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 400px;
+            background-color: #aaaaaa;
+            margin: 100px auto;
+        }
+
+        .box .list {
+            height: 50px;
+            background-color: blue;
+        }
+
+        .list li {
+            width: 100px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            border-right: 1px solid black;
+        }
+
+        .list .active {
+            background-color: blueviolet;
+        }
+
+        .box .listshow ul{
+            display: none;
+        }
+
+        .box .listshow .neirong{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="list">
+            <ul>
+                <li class="active">第一节课</li>
+                <li>第二节课</li>
+                <li>第三节课</li>
+            </ul>
+        </div>
+        <div class="listshow">
+                <ul class="neirong">
+                    <li>第一杰克内容</li>
+                    <li>第一杰克内容</li>
+                    <li>第一杰克内容</li>
+                </ul>
+                <ul>
+                    <li>第二部分内容</li>
+                    <li>第二部分内容</li>
+                    <li>第二部分内容</li>
+                </ul>
+                <ul>
+                    <li>第三部分内容</li>
+                    <li>第三部分内容</li>
+                    <li>第三部分内容</li>
+                </ul>
+        </div>
+    </div>
+    <script>
+        var olist = document.getElementsByClassName("list")[0].getElementsByTagName("li");
+        var oshow = document.getElementsByClassName("listshow")[0].getElementsByTagName("ul");
+        for (var i = 0; i < olist.length; i++) {
+            olist[i].index = i;
+            olist[i].onmouseover = function () {
+                for (var j = 0; j < olist.length; j++) {
+                    olist[j].classList.remove("active");
+                    oshow[j].classList.remove("neirong");
+                }
+                this.classList.add("active");
+                // console.log(this.index);
+                oshow[this.index].classList.add("neirong");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

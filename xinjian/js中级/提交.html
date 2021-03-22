@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./ajaxpost.js"></script> -->
+    <script src="./Ajax.js"></script>
+</head>
+
+<body>
+    <input type="text" class="shuru" value="test" placeholder="请输入值">
+    <button class="btn">提交</button>
+    <ul id="box"></ul>
+
+
+    <script>
+        var oBox = document.querySelector("#box");
+        var inp = document.querySelector(".shuru");
+        var btn = document.querySelector(".btn");
+
+        btn.onclick = function () {
+            console.log(inp.value);
+            ajaxpost("http://47.92.82.13:4000/insertOneLevel", { levelname: inp.value }, function (res) {
+                console.log(res);
+                getdata()
+            })
+        }
+
+        function getdata() {
+            ajaxGet("http://47.92.82.13:4000/showLevel", function (res) {
+                console.log(res.data);//小明
+                oBox.innerHTML = "";
+                for (var i = res.data.length-1; i >= 0 ; i--) {
+                    var ali = document.createElement("li");
+                    ali.innerText = res.data[i].levelname;
+                    oBox.appendChild(ali);
+                }
+            })
+        }
+        getdata()
+    </script>
+</body>
+
+</html>

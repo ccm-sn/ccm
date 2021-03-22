@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            color: #494949;
+        }
+
+        .first {
+            display: flex;
+            align-items: center;
+            /* width: 100rem; */
+            margin-top: 5px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+        }
+
+        .first .first-one {
+            color: green;
+            font-size: 25px;
+            margin-right: 20px;
+        }
+
+        .first .first-two {
+            border-radius: 3px;
+            height: 30px;
+            outline: none;
+        }
+
+        .first .first-three {
+            height: 25px;
+            width: 20px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAmCAYAAAC29NkdAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAKKADAAQAAAABAAAAJgAAAADmHvr3AAAB3UlEQVRYCe1YvU7DMBC+SzqAYERiYSlMLBUzG/0RAsFKVSYmHoIH4CGQEBsIViQklJbyCKgLE2JhYWFrBUNizsgR1yp2naRRXamp1Jydu+8+f+ckygE4fmD1ubkHkbgAAWtOcUX4AA9PPSfJSaWkYCSc55xyvIxEssTHT7U75ONp2dXOkYhze7Hh6tl5gkMl5irWg+amQNgQSP8FHgRPP3hrN25fk9JoFURflIsmJwnJHDJXEjk5pyUoQnz/W5suckLzMofMpYPTllhJnii7DqyIea2CRSTLgqlVsNZurRJgRWC4kAYYhf9N/r1O/eZTxo3DGfUfzWVSMDU5Ca4WVGGJjDgJ/izUdJOkVI6jctW5zX24bfIxKcgxpmbPCeaVfq5gYQqq51MmfB7LbR2YycdU4p4pcEyyHrtuxFE5uD8LBdC+SdSbIBjyzjDIi2NSMAOdyYc4TxD5B8rk158f0XkF5wTzFnkGFJRNGlcP4ubJDhK4SFJ1t3J9lNs+ovL0fGZgD7q6/xSv1CVudI+3wig8o8B9AWLJZn0I2Kd+2oPv+efBzvWLTUzsY03wsNtaGUTRFZE6iIOznInsfWlx+eRx+/LLJt56Dw4wKlMbpWYDavYRu9FPf93s83/1F6K5muLha2yBAAAAAElFTkSuQmCC) 100% no-repeat;
+            background-size: contain;
+            margin-left: 100px;
+        }
+
+        .second {
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 0.5rem;
+        }
+
+        .three,
+        .four,
+        .five {
+            display: flex;
+            border-bottom: 1px solid #cccccc;
+            margin: 20px 10px;
+        }
+
+        .left {
+            width: 2rem;
+            padding: 8px;
+            margin-right: 10px;
+        }
+
+        .right {
+            padding: 5px;
+        }
+
+        .right h1 {
+            font-size: 0.4rem;
+        }
+
+        .right .max {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAfhJREFUOBGlVD1LHFEUPXfWrzGJO2uhaIQ0iljESgKSpAjBwpXVKikEl6TzD6TwJ4gWaQMBS8WQgCRZ61QpglUgRbQUbMR1XfwodvbmvE1mdt/ssDPBC493733nnrkf7w2QQrSU29D9wY8poJAkkG6hD8O5E+IGgJsHkr8+7hTjdDpsnA0PLkHE4yK2r5iETyYUfdUkkRa96W3VOhLqXv8oFHNhgGCC/Xwc2jFKR0J0966w1IwVp/LasiNGOBTdxV24bhbqenCQRUY9qLzl2CasGEUVdbyA1M5R1wrq/gUqVxUp4tLghCX85D7VlonFksJQ9Un3w5S8c2sy8z3TGtGDRsla8op0vKe3O0UuMRBVDm9N8uX1Zg/3s8+hmU/sGS/wf8kN0UWZP/tgokJCY+jX3ENmWqJ3zNiJonoKXxalcPY9wFqExqmf3fvIuL+SM2WZNX9SCheHAZnZ2++h9FyxufdaQfG6CBznTvQshtDhSyA4jQieRmExhO2gaFBoi5OK8EkYECiqX9jdd1wauP7tbVgrw8a/TzETBpkp1nWZ96sg8+VV8j0j6VF4Dozo3sB4ix0ZypD3iO3r+QvQbfi1KVkobwcBkj//hmp5msSbXHxqlC67bCtDDr2fN/43wYvMaFkK1dOALNjlJa6Z8RuIP0vfAZfVhj/iqoy46fpKwgAAAABJRU5ErkJggg==");
+        }
+
+        .right .min {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAeRJREFUOBGtlDsvBFEUx3d2djfiMbTsQ0NEwTaiQSGiRKWREDofgMJHEAqdSPSE0BC9SiEqWQWSzT4SzSbrsR7Fzo7fEXfNg9klbjI5j/s/vzn3MRMI1DFyudxaPp8/qEMa0GqJ0ul0QzgcvtM0zbAsqzMWi+X9aoJ+kzIXiUSmgLXhinZOcn6jJpDieRvA7tvSX64vMJvNdiAdV3I67c5kMkMq/s76AgHMUqTbC0Oh0II9dvvVQ0mlUs2GYbRWKpU2ij4swA3pylX0ZJrmNPn7crn8oOv6Y7FYfEgmk8+i07gOl0z24js6cUHqCU1uwbksefcfYPJCHeDFx5LpUq7DNp2GZeYPw2KrVuLx+Gp1D4GOATwEZvwGSFdv6Oe48PtSVwVKwCfWB/SEJyZxHaMAcBLYmdI6gJIEGg0Gg1e4tTqVZfawzBsFE+u5h4heyLfYRT/4LERrcs95gNwr+RI8nbsLJWa5I+68B8hbPSJ3kYq/03qAvHVYFShL7phni9hSuU/r0TqA8u9DOGArKvCZzXCKEzyL7O8o4Fs1T4ftHGKXisU6gOzfIKLIp2CnVCr1JhKJHVXAiZ4C7Ae8Ts6UPDfCsUUhJRYLrJGCa+xSNBo9ss8pH+gr/jK/tj0a2ETv2IZ35FSkS7HbzakAAAAASUVORK5CYII=");
+        }
+
+        #staring {
+            font-size: 0;
+            line-height: 2px;
+            display: block;
+        }
+
+        .max,
+        .min {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            background-size: 10px 10px;
+
+        }
+
+        .right .num {
+            font-size: 0.3rem;
+        }
+
+        .right .word {
+            font-size: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="first">
+            <h1 class="first-one">豆瓣</h1>
+            <input class="first-two" type="search" placeholder="搜索">
+            <a class="first-three" href="/to_pc/?url=https%3A%2F%2Fm.douban.com%2Ftv%2Fchinese"></a>
+        </div>
+        <h1 class="second">国产剧</h1>
+        <div class="list">
+            <!-- <div class="three">
+            <img class="left" src="https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2626092806.jpg" >
+             <div class="right">
+                  <h1 >狼殿下</h1>
+                  <span id="staring">
+                      <span class="max"></span>
+                      <span class="max"></span>
+                      <span class="max"></span>
+                      <span class="min"></span>
+                      <span class="min"></span>
+                      <span class="num">6.2</span>
+                  </span>
+                  <p class="word">中国大陆 / 古装 / 陈玉珊 / 王大陆 李沁</p> -->
+        </div>
+    </div>
+    </div>
+
+
+
+    </div>
+    <script src="./rem.js"></script>
+
+    <script src="./Ajax.js"></script>
+    <script>
+        var start = 0;
+        var total = 0;
+        var sign = true;
+        function getdata() {
+            sign = false;
+            var list = document.querySelector(".list");
+            ajaxGet("https://bird.ioliu.cn/v2?url=https://m.douban.com/rexxar/api/v2/subject_collection/tv_domestic/items?start=" + start + "&count=18", function (res) {
+                // console.log(res.subject_collection_items);
+                let datalist = res.subject_collection_items;
+                let ali = "";
+                total = res.total;
+                for (var i = 0; i < datalist.length; i++) {
+
+                    ali += '<div class="three"> ' +
+                        ' <img class="left" src="https://images.weserv.nl/?url=' + datalist[i].cover.url + '" >' +
+                        '  <div class="right"> ' +
+                        '    <h1 >' + datalist[i].title + '</h1>' +
+                        '  <span id="staring"> ' +
+                        getstar(datalist[i].rating) +
+                        // '  <span class="max"></span>'+
+                        // '  <span class="max"></span> '+
+                        // '  <span class="max"></span> '+
+                        // '  <span class="min"></span> '+
+                        //  ' <span class="min"></span> '+
+                        // '  <span class="num">6.2</span>'+
+                        ' </span> ' +
+                        ' <p class="word">' + datalist[i].info + '</p>   </div> </div> '
+
+                }
+                list.innerHTML += ali;
+                start += 18;
+                sign = true;
+            })
+        }
+
+        function getstar(val) {
+            var str = "";
+            if (val) {
+                var num = Math.floor(Math.ceil(val.value) / 2);
+                for (var i = 0; i < 5; i++) {
+                    if (i < num) {
+                        str += '<span class="max"></span>'
+                    } else {
+                        str += '<span class="min"></span>'
+                    }
+                }
+
+                str += '<span class="num">' + val.value + '</span>';
+                return str;
+            } else {
+                return "暂无评分"
+            }
+        }
+        window.onscroll = function () {
+            var oHtml = document.documentElement;
+            console.log(oHtml.scrollTop, oHtml.scrollHeight, oHtml.clientHeight);
+            // oHtml.scrollTop 滚动条距离顶部的距离
+            // oHtml.clientHeight 当前适口高度
+            // oHtml.scrollHeight 可滚动区域高度
+            console.log(oHtml.scrollTop + oHtml.clientHeight + 10, oHtml.scrollHeight);
+            if (oHtml.scrollTop + oHtml.clientHeight + 10 >= oHtml.scrollHeight) {
+
+                console.log("到底部了");
+                if (sign && start < total) {
+                    getdata()
+                }
+            }
+        }
+
+        getdata();
+    </script>
+</body>
+
+</html>
